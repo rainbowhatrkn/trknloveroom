@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <h1>Bienvenue sur Loverooms</h1>
+        <p>Découvrez nos chambres romantiques et cocooning en location, parfaites pour une escapade en amoureux.</p>
+        {% if current_user.is_authenticated %}
+            {% if current_user.is_admin %}
+                <!-- Message spécifique aux administrateurs -->
+                <p class="admin-message">Vous êtes connecté en tant qu'administrateur.</p><br>
+
+                <a href="{{ url_for('add') }}" class="add-button">Ajouter une nouvelle Loveroom</a><br><br>
+                <a href="{{ url_for('users') }}" class="manage-users-button">Gérer les membres</a><br><br>
+            {% else %}
+                <!-- Message pour les membres -->
+                <p class="member-message">Vous êtes connecté en tant que membre.</p>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" class="logout-button">Déconnexion</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="login-button">Connexion</a>
+            <a href="{{ url_for('register') }}" class="register-button">Inscription</a>
+        {% endif %}
+    </header>
+
+    <section class="loverooms-list">
+        {% if loverooms %}
+            <h2>Nos chambres disponibles :</h2>
+            <div class="rooms">
+                {% for room in loverooms %}
+                    <div class="room">
+                        <h3>{{ room.name }}</h3>
+                        <p>{{ room.description }}</p>
+                        <p>Prix : {{ room.price }} € / nuit</p>
+                        <p>Localisation : {{ room.location }}</p>
+                        <a href="{{ url_for('loveroom_detail', id=room.id) }}">Voir plus</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucune chambre disponible pour le moment.</p>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='sty.css') }}">
+    <section class="login-section">
+        <h2>Connexion</h2>
+        <form method="POST" action="{{ url_for('login') }}" class="login-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.email.label }}<br>
+                {{ form.email(size=32, class_="input-field") }}<br>
+                {% for error in form.email.errors %}
+                    <span class="error-message">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}<br>
+                {{ form.password(size=32, class_="input-field") }}<br>
+                {% for error in form.password.errors %}
+                    <span class="error-message">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class_="submit-button") }}
+            </div>
+        </form>
+    </section>
+{% endblock %}

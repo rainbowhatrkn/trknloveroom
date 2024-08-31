@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Loveroom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Détails de la Loveroom</h1>
+    </header>
+
+    <section class="room-details">
+        {% if loveroom %}
+            <h2>{{ loveroom.name }}</h2>
+            <p><strong>Description :</strong> {{ loveroom.description }}</p>
+            <p><strong>Prix :</strong> {{ loveroom.price }} € / nuit</p>
+            <p><strong>Localisation :</strong> {{ loveroom.location }}</p>
+        {% else %}
+            <p>La chambre que vous cherchez n'existe pas.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="back-button">Retour à la liste</a>
+    </section>
+</body>
+</html>

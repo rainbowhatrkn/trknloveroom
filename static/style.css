@@ -1,0 +1,173 @@
+/* Base globale */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #0b0b0b; /* Noir profond et élégant */
+  color: #dcdcdc; /* Argent doux pour le texte */
+  margin: 0;
+  padding: 0;
+}
+
+/* Titres */
+h1, h2, h3 {
+  color: #c6a700; /* Or raffiné pour les titres */
+  font-weight: 700; /* Rendre les titres plus imposants */
+  text-transform: uppercase; /* Majuscules pour un effet plus chic */
+  letter-spacing: 1px; /* Espacement des lettres pour plus de style */
+}
+
+/* En-tête */
+header {
+  background-color: #151515; /* Noir légèrement plus clair pour le contraste */
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Ombre plus prononcée */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em; /* Taille augmentée pour un effet plus impactant */
+  color: #c6a700; /* Or raffiné pour le titre principal */
+  font-family: 'Playfair Display', serif; /* Style de police plus glamour */
+}
+
+/* Liens */
+a {
+  color: #c6a700; /* Or raffiné pour les liens */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out; /* Transition douce pour le survol */
+}
+
+a:hover {
+  color: #ffd700; /* Or plus vif au survol pour attirer l'attention */
+  text-decoration: underline;
+}
+
+/* Formulaires */
+form {
+  background-color: #151515; /* Noir foncé et élégant */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); /* Ombre plus marquée pour un effet luxueux */
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 90%;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border: 1px solid #555555; /* Bordure noir argenté pour un contraste subtil */
+  background-color: #222222; /* Noir foncé pour les champs */
+  color: #dcdcdc; /* Texte argenté pour la lisibilité */
+}
+
+form input[type="submit"] {
+  background-color: #c6a700; /* Or raffiné pour le bouton */
+  color: #0b0b0b; /* Noir profond pour le texte du bouton */
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out; /* Transition douce au survol */
+}
+
+form input[type="submit"]:hover {
+  background-color: #b8860b; /* Or plus foncé et sophistiqué au survol */
+}
+
+/* Conteneur principal */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Listes */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #151515; /* Noir foncé pour les éléments de liste */
+  margin: 20px 0;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Ombre marquée pour un effet glamour */
+}
+
+ul li a {
+  font-size: 1.4em;
+  color: #c6a700; /* Or raffiné pour les liens dans la liste */
+  font-family: 'Playfair Display', serif; /* Police plus élégante */
+}
+
+/* Pied de page */
+.footer {
+  background-color: #151515;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1em;
+  color: #dcdcdc; /* Argent doux pour le texte du pied de page */
+}
+
+/* Styles pour les boutons supplémentaires */
+.admin-message {
+  color: #e74c3c; /* Rouge profond pour attirer l'attention */
+  background-color: #2a2a2a; /* Noir élégant pour le contraste */
+  border: 1px solid #e74c3c; /* Bordure rouge profond */
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.member-message {
+  color: #3498db; /* Bleu élégant pour les membres */
+  background-color: #1f1f1f; /* Noir sophistiqué pour le fond */
+  border: 1px solid #3498db; /* Bordure bleue élégante */
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Boutons personnalisés */
+.add-button {
+  background-color: #FF6347; /* Rouge chaud et attirant pour le bouton d'ajout */
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.manage-users-button {
+  background-color: #c6a700; /* Or raffiné pour la gestion des membres */
+  color: #0b0b0b;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logout-button, .login-button, .register-button {
+  background-color: #3498db; /* Bleu élégant pour les boutons de connexion/inscription */
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Styles au survol */
+.add-button:hover, .manage-users-button:hover, .logout-button:hover, .login-button:hover, .register-button:hover {
+  opacity: 0.8; /* Réduction de l'opacité pour un effet au survol */
+}

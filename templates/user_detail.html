@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .user-detail-form {
+        background-color: #1f1f1f; /* Fond noir foncé */
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #DAA520; /* Bordure dorée */
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8); /* Ombre pour effet de profondeur */
+    }
+    .user-detail-form h2 {
+        color: #DAA520; /* Or vieilli pour le titre */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .user-detail-form div {
+        margin-bottom: 20px;
+    }
+    .user-detail-form label {
+        font-weight: bold;
+        color: #c0c0c0; /* Argenté pour les labels */
+    }
+    .user-detail-form input {
+        border: 1px solid #3a3a3a; /* Bordure noire foncée */
+        border-radius: 10px;
+        padding: 12px;
+        width: 70%;
+        background-color: #2a2a2a; /* Fond noir pour les champs */
+        color: #c0c0c0; /* Texte argenté */
+    }
+    .user-detail-form span {
+        color: #FF6347; /* Tomate pour les messages d'erreur */
+    }
+    .user-detail-form button {
+        background-color: #DAA520; /* Or vieilli pour le bouton */
+        color: #0d0d0d; /* Texte noir profond */
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 80%;
+        font-size: 1.1em;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Ombre pour effet 3D */
+    }
+    .user-detail-form button:hover {
+        background-color: #b8860b; /* Or plus foncé au survol */
+        color: #ffffff; /* Texte blanc au survol */
+    }
+</style>
+<h2>Modifier l'utilisateur</h2>
+<form method="post" class="user-detail-form">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.username.label }}<br>
+        {{ form.username() }}<br>
+        {% for error in form.username.errors %}
+        <span>{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.email.label }}<br>
+        {{ form.email() }}<br>
+        {% for error in form.email.errors %}
+        <span>{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.is_admin.label }}<br>
+        {{ form.is_admin() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

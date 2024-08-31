@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les utilisateurs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #0d0d0d; /* Arrière-plan noir profond */
+            color: #f5f5f5; /* Texte blanc cassé */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .user-list {
+            background-color: #1c1c1c; /* Fond noir légèrement plus clair pour les listes */
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #DAA520; /* Bordure dorée pour une touche luxueuse */
+            max-width: 800px;
+            margin: 50px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8); /* Ombre pour un effet de profondeur */
+        }
+
+        .user-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-list li {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #3a3a3a; /* Bordure noire foncée */
+            border-radius: 10px;
+            background-color: #2a2a2a; /* Fond noir pour les éléments de liste */
+            color: #c0c0c0; /* Texte argenté pour les éléments de liste */
+        }
+
+        .user-list li p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .delete-button, .details-button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Ombre pour effet 3D */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .delete-button {
+            background-color: #FF6347; /* Rouge tomate pour le bouton de suppression */
+        }
+
+        .details-button {
+            background-color: #DAA520; /* Or vieilli pour le bouton de détails */
+        }
+
+        .details-button:hover, .delete-button:hover {
+            background-color: #b8860b; /* Doré plus foncé pour l'effet de survol du bouton de détails */
+            color: #000; /* Noir pour le texte lors du survol */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #DAA520; /* Titre en or vieilli */
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 10px 20px;
+            background-color: #4d94ff; /* Bleu pour le bouton de retour */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #1e90ff; /* Bleu plus foncé au survol */
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gérer les utilisateurs</h1>
+        <a href="{{ url_for('index') }}" class="back-button">Retour à l'accueil</a>
+    </header>
+
+    <section class="user-list">
+        {% if users %}
+            <ul>
+                {% for user in users %}
+                    <li>
+                        <p><strong>Nom d'utilisateur:</strong> {{ user.username }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p><br>
+                        <a href="{{ url_for('user_detail', id=user.id) }}" class="details-button">Voir les détails</a><br><br><br>
+                        <form action="{{ url_for('delete_user', id=user.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="delete-button">Supprimer</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun utilisateur trouvé.</p>
+        {% endif %}
+    </section>
+</body>
+</html>

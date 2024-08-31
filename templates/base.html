@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loveroom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Loveroom</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                {% if current_user.is_authenticated %}
+                    {% if current_user.is_admin %}
+                        <li><a href="{{ url_for('users') }}" class="manage-users-button">Manage Users</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('logout') }}" class="logout-button">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="login-button">Login</a></li>
+                    <li><a href="{{ url_for('register') }}" class="register-button">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}
+        <!-- This is where page-specific content will be injected -->
+        {% endblock %}
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Loveroom. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .user-detail-form {
+        background-color: #e6f7ff; /* Light blue background */
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #b3d9ff;
+        max-width: 600px;
+        margin: auto;
+    }
+    .user-detail-form h2 {
+        color: #004080; /* Dark blue */
+    }
+    .user-detail-form div {
+        margin-bottom: 15px;
+    }
+    .user-detail-form label {
+        font-weight: bold;
+        color: #0066cc; /* Bright blue */
+    }
+    .user-detail-form input {
+        border: 1px solid #b3d9ff;
+        border-radius: 5px;
+        padding: 8px;
+        width: 100%;
+    }
+    .user-detail-form span {
+        color: #ff4d4d; /* Red for errors */
+    }
+    .user-detail-form button {
+        background-color: #4d94ff; /* Bright blue */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .user-detail-form button:hover {
+        background-color: #005bb5; /* Darker blue on hover */
+    }
+</style>
+<h2>Edit User</h2>
+<form method="post" class="user-detail-form">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.username.label }}<br>
+        {{ form.username() }}<br>
+        {% for error in form.username.errors %}
+        <span>{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.email.label }}<br>
+        {{ form.email() }}<br>
+        {% for error in form.email.errors %}
+        <span>{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.is_admin.label }}<br>
+        {{ form.is_admin() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
